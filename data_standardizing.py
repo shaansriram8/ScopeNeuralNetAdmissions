@@ -106,11 +106,10 @@ cleaned_df = clean_scope_data(df)
 
 with open('cleaned_scope_data.txt', 'w', encoding='utf-8') as f:
     for index, row in cleaned_df.iterrows():
-        # Write each row as a formatted string
         f.write(f"Application {index + 1}\n")
         for column in cleaned_df.columns:
-            if str(row[column]).strip():  # Only write non-empty values
+            if str(row[column]).strip():  
                 f.write(f"{column}: {row[column]}\n")
-        f.write("\n---\n\n")  # Add separator between applications
+        f.write("\n---\n\n")  
 
 print("Data has been written to 'cleaned_scope_data.txt'")
