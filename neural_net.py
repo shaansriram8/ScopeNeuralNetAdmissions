@@ -15,6 +15,7 @@ X_test = tstfile.iloc[: , :-1] #For final check
 Y_test = tstfile.iloc[: , -1]
 
 X_train, X_val, Y_train, Y_val = train_test_split(X_train, Y_train, test_size=0.2, random_state = 42) # (80% train, 20% validation), random state to get same results for debugging
+
 #Creating the model
 model = keras.Sequential([
 
