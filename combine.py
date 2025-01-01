@@ -2,16 +2,14 @@ import os
 import pandas as pd
 
 def clean_yes_no_to_binary(value):
-    """
-    Converts responses to 1 if the first letter is 'y', and 0 if the first letter is 'n'.
-    """
     if isinstance(value, str):
         value_lower = value.strip().lower()
-        if value_lower.startswith('y'):  # Check if the first letter is 'y'
+        if value_lower.startswith('y'): 
             return 1
-        elif value_lower.startswith('n'):  # Check if the first letter is 'n'
+        else:  
             return 0
-    return None
+    return 0  
+
 
 
 def combine_and_preprocess(folder_path, output_file):
