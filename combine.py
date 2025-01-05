@@ -10,19 +10,10 @@ def clean_yes_no_to_binary(value):
             return 0
     return 0  
 
-
-
-def combine_and_preprocess(folder_path, output_file):
-    #these are the specific column names to preprocess 
-    columns_to_clean = [
-        "Have you ever applied to Scope before? If so, which semester(s)?",
-        "Are you willing to commit at least 4 hours a week to the club (including general meetings and weekly project team meetings)?",
-        "Do you have any conflicts on Tuesdays from 6-7 pm?",
-        "Do you plan to be on campus this semester?"
-    ]
-    
+def combine_csv_files(folder_path):
+    """Combine all CSV files in a folder into a single DataFrame."""
     dataframes = []
-
+    
     #read and combine CSV files
     for file_name in os.listdir(folder_path):
         if file_name.endswith('.csv'):
@@ -34,22 +25,32 @@ def combine_and_preprocess(folder_path, output_file):
             except Exception as e:
                 print(f"Error processing {file_name}: {e}")
 
+    #combine all DataFrames into one
     combined_data = pd.concat(dataframes, ignore_index=True)
+    return combined_data
 
-    #preprocess cols
+def clean_combined_data(dataframe, columns_to_clean):
+    """Clean specified columns in a DataFrame."""
+    #preprocess all da columns
     for col in columns_to_clean:
-        if col in combined_data.columns:
-            #clean to binary values (1 for 'y', 0 for 'n')
-            combined_data[col] = combined_data[col].apply(clean_yes_no_to_binary)
+        if col in dataframe.columns:
+            #clean to binary values (1 -> 'y', 0 -> 'n')
+            dataframe[col] = dataframe[col].apply(clean_yes_no_to_binary)
 
-    #removes rows without 0 or 1
+    #columns with valid binary values 
     binary_cols = [
         col for col in columns_to_clean
-        if col in combined_data.columns and combined_data[col].dropna().isin([0, 1]).all()
+        if col in dataframe.columns and dataframe[col].dropna().isin([0, 1]).all()
     ]
-    combined_data = combined_data[binary_cols]
+    
+    #keep only the binary-valid columns
+    dataframe = dataframe[binary_cols]
 
-    #drop rows taht are missing vals
-    combined_data = combined_data.dropna()
+    #drop rows with missing values
+    dataframe = dataframe.dropna()
+    return dataframe
 
-    combined_data.to_csv(output_file, index=False)
+
+   
+
+
