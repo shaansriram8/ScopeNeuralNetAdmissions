@@ -47,7 +47,7 @@ def clean_combined_data(dataframe, columns_to_clean):
     dataframe = dataframe[binary_cols]
 
     #drop rows with missing values
-    dataframe = dataframe.dropna()
+    dataframe = dataframe.fillna("")
     return dataframe
 
 
