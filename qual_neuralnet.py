@@ -132,17 +132,25 @@ plt.grid()
 plt.show
 
 #Final Test of the model to evaluate
-tst_loss, tst_accuracy = model_struc.evaluate(X_test_struc, Y_test, verbose = 2)
-tst_loss, tst_accuracy = model_struc.evaluate(X_test_unstr, Y_test, verbose = 2)
+tst_loss_struc, tst_accuracy_struc = model_struc.evaluate(X_test_struc, Y_test, verbose = 2)
+tst_loss_unstr, tst_accuracy_unstr = model_unstr.evaluate(X_test_unstr, Y_test, verbose = 2)
 
 #Final Test of the model to predict
-predict_unstr = model_struc.predict(X_test_struc, Y_test, verbose = 2)
-predict_struc = model_struc.predict(X_test_unstr, Y_test, verbose = 2)
+predict_struc = model_struc.predict(X_test_struc, Y_test, verbose = 2)
+predict_unstr = model_unstr.predict(X_test_unstr, Y_test, verbose = 2)
 
 predictions = (predict_unstr + predict_struc)/2
+
 plt.title('Loss and Accuracy on Model Testing (Training vs Validation)')
-plt.plot(tst_loss, label = "Test Loss")
-plt.plot(tst_accuracy, label = 'Test Accuracy')
+plt.plot(tst_loss_struc, label = "Test Loss")
+plt.plot(tst_accuracy_struc, label = 'Test Accuracy')
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.title('Loss and Accuracy on Model Testing (Training vs Validation)')
+plt.plot(tst_loss_unstr, label = "Test Loss")
+plt.plot(tst_accuracy_unstr, label = 'Test Accuracy')
 plt.legend()
 plt.grid()
 plt.show()
