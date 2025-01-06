@@ -98,6 +98,10 @@ training_struc = model_struc.fit(
     callbacks = [early_stopping]
 )
 
+#SAVE THE WEIGHTS
+model_struc.save_weights('model_struc_weights.h5')
+model_unstr.save_weights('model_unstr_weights.h5')
+
 #plot the loss vs val_loss data 
 plt.title('Structured - Loss on Model Training (Training vs Validation)')
 plt.plot(training_struc.history['loss'], label = 'Training Loss')
