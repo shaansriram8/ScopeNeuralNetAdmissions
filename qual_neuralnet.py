@@ -1,11 +1,8 @@
-import tensorflow
 from tensorflow.python import keras
 from tensorflow.python.keras import layers
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
-from tensorflow.python.keras.layers import Embedding, LSTM, Dense, Dropout
 
 #initialize data
 trnfile = pd.read_csv('clean_train_data.csv') # update both with actual files
