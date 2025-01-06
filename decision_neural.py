@@ -1,11 +1,6 @@
-import tensorflow
 from tensorflow.python import keras
 from tensorflow.python.keras import layers
-import numpy as np
 import pandas as pd
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-from tensorflow.python.keras.layers import Embedding, LSTM, Dense, Dropout
 
 #Loading in new applicant data
 tstfile = pd.read_csv(input("Enter file path of applicant data"))
