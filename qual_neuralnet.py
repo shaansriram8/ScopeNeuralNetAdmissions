@@ -99,32 +99,29 @@ training_struc = model_struc.fit(
 )
 
 #plot the loss vs val_loss data 
-plt.title('Loss on Model Training (Training vs Validation)')
+plt.title('Structured - Loss on Model Training (Training vs Validation)')
 plt.plot(training_struc.history['loss'], label = 'Training Loss')
 plt.plot(training_struc.history['val_loss'], label = 'Validation Loss')
 plt.legend()
 plt.grid()
 plt.show()
 
-plt.title('Accuracy on Model Training (Training vs Validation)')
-
-plt.title('Loss on Model Training (Training vs Validation)')
+plt.title('Unstructured - Accuracy on Model Training (Training vs Validation)')
 plt.plot(training_unstruc.history['loss'], label = 'Training Loss')
 plt.plot(training_unstruc.history['val_loss'], label = 'Validation Loss')
 plt.legend()
 plt.grid()
 plt.show()
 
-plt.title('Accuracy on Model Training (Training vs Validation)')
-
-
 #plot the accuracy vs val_accuracy data
+plt.title('Structured - Accuracy on Model Training (Training vs Validation)')
 plt.plot(training_struc.history['accuracy'], label = 'Training Accuracy')
 plt.plot(training_struc.history['val_accuracy'], label = 'Validation Accuracy')
 plt.legend()
 plt.grid()
 plt.show
 
+plt.title('Unstructured - Accuracy on Model Training (Training vs Validation)')
 plt.plot(training_unstruc.history['accuracy'], label = 'Training Accuracy')
 plt.plot(training_unstruc.history['val_accuracy'], label = 'Validation Accuracy')
 plt.legend()
@@ -141,14 +138,14 @@ predict_unstr = model_unstr.predict(X_test_unstr, Y_test, verbose = 2)
 
 predictions = (predict_unstr + predict_struc)/2
 
-plt.title('Loss and Accuracy on Model Testing (Training vs Validation)')
+plt.title('Structured - Loss and Accuracy on Model Testing (Training vs Validation)')
 plt.plot(tst_loss_struc, label = "Test Loss")
 plt.plot(tst_accuracy_struc, label = 'Test Accuracy')
 plt.legend()
 plt.grid()
 plt.show()
 
-plt.title('Loss and Accuracy on Model Testing (Training vs Validation)')
+plt.title('Unstructured - Loss and Accuracy on Model Testing (Training vs Validation)')
 plt.plot(tst_loss_unstr, label = "Test Loss")
 plt.plot(tst_accuracy_unstr, label = 'Test Accuracy')
 plt.legend()
