@@ -1,4 +1,4 @@
-import pandas as pd
+"""import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Sample DataFrame
@@ -20,3 +20,4 @@ df['tfidf'] = tfidf_vectors
 # df['tfidf'] = [np.array(v) for v in tfidf_vectors]
 
 print(df)
+"""

@@ -1,3 +1,4 @@
+"""
 import nltk
 import re
 nltk.download('punkt_tab')
@@ -47,7 +48,7 @@ def tf_idf_calc(df):
 
 
 def clean_unstructured_data(dataframe):
-    """Clean specified columns in a DataFrame."""
+    #Clean specified columns in a DataFrame.
 
     columns_to_clean = [
     "Why are you interested in joining SCOPE Consulting? (100 - 200 words)",
@@ -90,3 +91,4 @@ def clean_unstructured_data(dataframe):
 
 
 
+"""

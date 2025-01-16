@@ -1,4 +1,4 @@
-from tensorflow.python import keras
+"""from tensorflow.python import keras
 from tensorflow.python.keras import layers
 import pandas as pd
 
@@ -54,4 +54,4 @@ final = [1 if x > .85 else 0 for x in final]
 print("The following appl;icants are eligble for admission: \n")
 
 for x,y in enumerate(final):
-    if final[y] == 1: print(f"Applicant {x}")
+    if final[y] == 1: print(f"Applicant {x}")"""
