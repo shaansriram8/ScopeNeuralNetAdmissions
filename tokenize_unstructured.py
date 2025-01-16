@@ -50,10 +50,13 @@ def clean_unstructured_data(dataframe):
     #Clean specified columns in a DataFrame.
 
     columns_to_clean = [
-    "Why are you interested in joining SCOPE Consulting? (100 - 200 words)",
-    "What skills, expertise and knowledge will you bring to SCOPE Consulting and your team?",
-    "What do you hope to gain from this experience?",
-    "Is there anything else you would like SCOPE board to know?"
+    "Why scope",
+    "What skills",
+    "Gain",
+    "Anything else",
+    "Major",
+    "Minor",
+    "How did you hear"
     ]
 
     # set dataframe to only be the relavent columns

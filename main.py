@@ -1,11 +1,11 @@
 from combine import combine_csv_files, clean_combined_data
 from load_data import load_data
-#from tokenize_unstructured import clean_unstructured_data
+from tokenize_unstructured import clean_unstructured_data
 
 if __name__ == "__main__":
     folder_path = './csv_files'  
     output_file1 = 'binary_csv.csv'
-    #output_file2 = 'tokenized_csv.csv'  
+    output_file2 = 'tokenized_csv.csv'  
 
     columns_to_clean = [
         "On campus",
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     #load_data(output_file1)
     #------------------------------------------------------------
 
-"""
+
     # tokenizing unstructured data: Srushti
 
     unstructured_csv = combined_data.copy()
@@ -40,5 +40,5 @@ if __name__ == "__main__":
     tokenized_data.to_csv(output_file2, index=False)
 
     load_data(output_file2)
-"""
+
     
