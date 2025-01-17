@@ -2,6 +2,7 @@ from combine import combine_csv_files, clean_combined_data
 from unused.load_data import load_data
 from tokenize_unstructured import clean_unstructured_data
 from mastercsv import combine_tokenized_binary
+from training_testing import split_csv_horizontally
 import os
 
 if __name__ == "__main__":
@@ -9,9 +10,12 @@ if __name__ == "__main__":
     output_folder = './output_files'
     output_file1 = 'binary_csv.csv'
     output_file2 = 'tokenized_csv.csv' 
+    output_file3 = 'master_csv.csv'
     output_file1 = os.path.join(output_folder, 'binary_csv.csv')
     output_file2 = os.path.join(output_folder, 'tokenized_csv.csv')
     output_file3 = os.path.join(output_folder, 'master_csv.csv')
+    training_csv = os.path.join(output_folder, 'training.csv')
+    testing_csv = os.path.join(output_folder, 'testing.csv')
 
     columns_to_clean = [
         "Timestamp",
@@ -52,6 +56,9 @@ if __name__ == "__main__":
 
 
     combine_tokenized_binary(output_file1, output_file2, output_file3)
+
+    split_csv_horizontally(output_file3, training_csv, testing_csv, test_size=0.2, random_state=42)
+
 
 
     
