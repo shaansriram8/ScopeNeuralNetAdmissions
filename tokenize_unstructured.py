@@ -1,7 +1,11 @@
 import nltk
+import ssl
 import re
-nltk.download('punkt_tab')
+ssl._create_default_https_context = ssl._create_unverified_context
+nltk.download('punkt')
+#nltk.download('punkt_tab') --> was previously here but wont run for me- mac issue?
 nltk.download('stopwords')
+
 from nltk.corpus import stopwords
 from nltk.tokenize  import word_tokenize, sent_tokenize
 import pandas as pd
@@ -89,6 +93,7 @@ def clean_unstructured_data(dataframe):
     # #drop rows with missing values
 
     return dataframe
+
 
 
 
