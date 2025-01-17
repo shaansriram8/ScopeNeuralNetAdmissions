@@ -1,6 +1,7 @@
 from combine import combine_csv_files, clean_combined_data
 from load_data import load_data
 from tokenize_unstructured import clean_unstructured_data
+from mastercsv import combine_tokenized_binary
 
 if __name__ == "__main__":
     folder_path = './csv_files'  
@@ -8,6 +9,7 @@ if __name__ == "__main__":
     output_file2 = 'tokenized_csv.csv'  
 
     columns_to_clean = [
+        "Timestamp",
         "On campus",
         "Conflicts",
         "Commit hours",
@@ -39,6 +41,13 @@ if __name__ == "__main__":
 
     tokenized_data.to_csv(output_file2, index=False)
 
-    load_data(output_file2)
+    #------------------------------------------------------------
+
+    # combining tokenized and binary data: Shaan
+
+    combined_output = 'master_csv.csv'
+
+    combine_tokenized_binary(output_file1, output_file2, combined_output)
+
 
     
